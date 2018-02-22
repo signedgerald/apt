@@ -32,6 +32,13 @@ void freeAddressBookList(AddressBookList *list)
      * 
      * Note the freeAddressBookNode(...) function is used to free a node.
      */
+    struct AddressBookList *tmp;
+    while (list != NULL)
+    {
+        tmp = list;
+        list = list->head->nextNode;
+        free(tmp);
+    }
 }
 
 AddressBookNode *createAddressBookNode(int id, char *name)
